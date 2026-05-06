@@ -1,0 +1,73 @@
+{
+  "name": "openclaw-edu-vn",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "nuxt generate",
+    "generate": "nuxt generate",
+    "dev": "nuxt dev --port 3002",
+    "preview": "wrangler pages dev .output/public",
+    "deploy": "wrangler pages deploy .output/public --project-name=openclaw-edu-vn",
+    "prepare": "nuxt prepare && husky",
+    "lint": "eslint .",
+    "lint:staged": "lint-staged",
+    "typecheck": "nuxt typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage",
+    "test:unit": "vitest --project unit",
+    "test:nuxt": "vitest --project nuxt",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
+  },
+  "dependencies": {
+    "@nuxt/content": "catalog:",
+    "es-toolkit": "catalog:",
+    "h3": "catalog:",
+    "nanoid": "catalog:",
+    "nuxt": "catalog:",
+    "nuxt-llms": "catalog:",
+    "ts-enum-util": "catalog:",
+    "ts-pattern": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:",
+    "@iconify-json/lucide": "catalog:",
+    "@iconify-json/simple-icons": "catalog:",
+    "@nuxt/eslint": "catalog:",
+    "@nuxt/fonts": "catalog:",
+    "@nuxt/icon": "catalog:",
+    "@nuxt/scripts": "catalog:",
+    "@nuxt/test-utils": "catalog:",
+    "@playwright/test": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "@vue/test-utils": "catalog:",
+    "@vueuse/nuxt": "catalog:",
+    "better-sqlite3": "catalog:",
+    "dotenv": "catalog:",
+    "eslint": "catalog:",
+    "eslint-plugin-import-lite": "catalog:",
+    "eslint-plugin-perfectionist": "catalog:",
+    "eslint-plugin-pnpm": "catalog:",
+    "eslint-plugin-unicorn": "catalog:",
+    "happy-dom": "catalog:",
+    "husky": "catalog:",
+    "lint-staged": "catalog:",
+    "magic-regexp": "catalog:",
+    "playwright-core": "catalog:",
+    "tsx": "catalog:",
+    "type-fest": "catalog:",
+    "vitest": "catalog:",
+    "vue-tsc": "catalog:",
+    "wrangler": "catalog:"
+  },
+  "lint-staged": {
+    "*.{ts,mts,cts,vue,js,mjs,cjs}": [
+      "eslint --fix"
+    ]
+  }
+}
