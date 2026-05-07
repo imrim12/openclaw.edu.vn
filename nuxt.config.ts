@@ -32,7 +32,11 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/': { prerender: true },
+    '/': {
+      prerender: true,
+      headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' },
+    },
+    '/robots.txt': { prerender: false },
   },
 
   eslint: {

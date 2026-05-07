@@ -38,12 +38,12 @@ defineProps<{
     <p class="khoa-card__teaser">
       {{ teaser }}
     </p>
-    <button
-      type="button"
+    <a
+      :href="`mailto:nguyenhuunguyeny.ny@gmail.com?subject=${encodeURIComponent(`Đăng ký nhận tin ${name}`)}`"
       class="khoa-card__cta"
     >
       {{ cta }}
-    </button>
+    </a>
   </article>
 </template>
 
@@ -133,6 +133,8 @@ defineProps<{
   transition: background 0.2s, border-color 0.2s;
   align-self: flex-start;
   outline-offset: 2px;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .khoa-card__cta:hover {

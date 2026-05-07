@@ -116,7 +116,7 @@ useHead({
     <!-- ============================================================
          WHAT IT IS — §3 Tuyên ngôn
     ============================================================ -->
-    <section class="section section--surface">
+    <section id="tuyen-ngon" class="section section--surface">
       <div class="container container--narrow">
         <h2 class="section__heading">
           Trường là gì
@@ -260,7 +260,7 @@ fetch('https://cdn-openclaw-edu.opencloud.com.vn/llms.txt')</code></pre>
     <!-- ============================================================
          VĂN BẰNG
     ============================================================ -->
-    <section class="section section--surface">
+    <section id="van-bang" class="section section--surface">
       <div class="container container--narrow">
         <h2 class="section__heading">
           Văn bằng đã cấp
@@ -297,10 +297,10 @@ fetch('https://cdn-openclaw-edu.opencloud.com.vn/llms.txt')</code></pre>
               Trường
             </h4>
             <ul class="footer__list">
-              <li><a href="/gioi-thieu" class="footer__link">Giới thiệu</a></li>
-              <li><a href="/hoi-dong-hoc-thuat" class="footer__link">Hội đồng học thuật</a></li>
-              <li><a href="/quy-che" class="footer__link">Quy chế</a></li>
-              <li><a href="/dong-gop" class="footer__link">Đóng góp giáo trình</a></li>
+              <li><a href="#tuyen-ngon" class="footer__link">Giới thiệu</a></li>
+              <li><span class="footer__link footer__link--plain">Hội đồng học thuật</span></li>
+              <li><span class="footer__link footer__link--plain">Quy chế</span></li>
+              <li><a href="mailto:nguyenhuunguyeny.ny@gmail.com?subject=%C4%90%C4%83ng%20k%C3%BD%20%C4%91%C3%B3ng%20g%C3%B3p%20gi%C3%A1o%20tr%C3%ACnh" class="footer__link">Đóng góp giáo trình</a></li>
             </ul>
           </div>
           <div class="footer__links">
@@ -308,9 +308,9 @@ fetch('https://cdn-openclaw-edu.opencloud.com.vn/llms.txt')</code></pre>
               Nội dung
             </h4>
             <ul class="footer__list">
-              <li><a href="/khoa/" class="footer__link">Các Khoa đào tạo</a></li>
-              <li><a href="/tro-ly/" class="footer__link">Danh sách Trợ lý</a></li>
-              <li><a href="/tra-cuu-van-bang/" class="footer__link">Tra cứu văn bằng</a></li>
+              <li><a href="#tro-ly" class="footer__link">Các Khoa đào tạo</a></li>
+              <li><a href="#tro-ly" class="footer__link">Danh sách Trợ lý</a></li>
+              <li><a href="#van-bang" class="footer__link">Tra cứu văn bằng</a></li>
               <li>
                 <a
                   :href="`${cdnBase}/van-ban-goc/`"
@@ -772,6 +772,11 @@ body {
 .footer__link:focus-visible {
   outline: 2px solid var(--coral-bright);
   border-radius: 2px;
+}
+
+.footer__link--plain {
+  cursor: default;
+  pointer-events: none;
 }
 
 .footer__bottom {

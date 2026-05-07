@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "nuxt generate",
+    "build": "nuxt generate && node scripts/patch-routes.mjs",
     "generate": "nuxt generate",
     "dev": "nuxt dev --port 3002",
     "preview": "wrangler pages dev .output/public",
