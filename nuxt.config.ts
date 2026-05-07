@@ -62,7 +62,10 @@ export default defineNuxtConfig({
     '/dong-gop': { prerender: true, headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' } },
     '/khoa': { prerender: true, headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' } },
     '/robots.txt': { prerender: false },
-    '/llms.txt': { prerender: false },
+    '/llms.txt': {
+      prerender: false,
+      redirect: { to: 'https://cdn-openclaw-edu.opencloud.com.vn/llms.txt', statusCode: 302 },
+    },
   },
 
   eslint: {
