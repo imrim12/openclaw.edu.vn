@@ -19,6 +19,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterTitle: 'Cao đẳng OpenClaw — Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam',
   twitterDescription: 'Cao đẳng OpenClaw cung cấp bộ Trợ lý AI chuyên ngành đã được đào tạo và chuẩn bị sẵn cho các nghiệp vụ phổ biến tại doanh nghiệp Việt Nam.',
+  twitterImage: 'https://openclaw.edu.vn/og-home.png',
 })
 
 useHead({
