@@ -16,9 +16,9 @@ const uid = `seal-${Math.random().toString(36).slice(2, 7)}`
     </defs>
     <circle cx="50" cy="50" r="46" fill="none" stroke="#2a3450" stroke-width="1" />
     <circle cx="50" cy="50" r="42" fill="none" stroke="#2a3450" stroke-width="0.5" />
-    <text font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="2" fill="#9aa3b8">
+    <text font-family="IBM Plex Mono, monospace" font-size="8.5" letter-spacing="2" fill="#9aa3b8">
       <textPath :href="`#${uid}`" start-offset="0">CAO ĐẲNG OPENCLAW · MMXXVI · </textPath>
     </text>
-    <text x="50" y="55" text-anchor="middle" font-family="Clash Display, sans-serif" font-size="22" font-weight="600" fill="#ff4d4d">OC</text>
+    <text x="50" y="55" text-anchor="middle" font-family="Be Vietnam Pro, sans-serif" font-size="22" font-weight="700" fill="#ff4d4d">OC</text>
   </svg>
 </template>

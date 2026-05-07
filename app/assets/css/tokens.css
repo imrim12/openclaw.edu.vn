@@ -12,9 +12,9 @@
   --coral-soft: rgba(255, 77, 77, 0.12);
   --cyan: #00e5cc;
   --cyan-soft: rgba(0, 229, 204, 0.1);
-  --font-display: 'Clash Display', system-ui, sans-serif;
-  --font-body: 'Satoshi', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-display: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-body: 'Open Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 }
 
 *,

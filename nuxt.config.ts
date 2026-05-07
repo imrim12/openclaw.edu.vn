@@ -74,9 +74,9 @@ export default defineNuxtConfig({
 
   fonts: {
     families: [
-      { name: 'Clash Display', provider: 'fontshare', weights: [400, 500, 600, 700] },
-      { name: 'Satoshi', provider: 'fontshare', weights: [300, 400, 500, 700] },
-      { name: 'JetBrains Mono', provider: 'google', weights: [400, 500, 600] },
+      { name: 'Be Vietnam Pro', provider: 'google', weights: [600, 700] },
+      { name: 'Open Sans', provider: 'google', weights: [400, 500, 600, 700] },
+      { name: 'IBM Plex Mono', provider: 'google', weights: [400, 500, 600] },
     ],
   },
 

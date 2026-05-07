@@ -29,8 +29,8 @@ const { currentRole, isOut } = useRoleRotator()
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(54px, 9vw, 112px);
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1;
   color: var(--text);
   margin-bottom: 56px;

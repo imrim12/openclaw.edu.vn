@@ -52,8 +52,8 @@ section {
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(32px, 4.5vw, 48px);
-  font-weight: 500;
-  letter-spacing: -0.025em;
+  font-weight: 600;
+  letter-spacing: -0.015em;
   line-height: 1.1;
   color: var(--text);
   margin-bottom: 28px;

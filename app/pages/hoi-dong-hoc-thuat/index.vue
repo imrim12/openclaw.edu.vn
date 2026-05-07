@@ -45,8 +45,8 @@ useSeoMeta({ title: 'Hội đồng học thuật — Cao đẳng OpenClaw' })
 h1 {
   font-family: var(--font-display);
   font-size: clamp(32px, 4.5vw, 48px);
-  font-weight: 500;
-  letter-spacing: -0.025em;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   color: var(--text);
   margin-bottom: 16px;
 }
