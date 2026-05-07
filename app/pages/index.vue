@@ -64,6 +64,10 @@ useSeoMeta({
 
 useHead({
   htmlAttrs: { lang: 'vi' },
+  link: [
+    { rel: 'alternate', type: 'text/plain', title: 'OpenClaw corpus index', href: 'https://cdn-openclaw-edu.opencloud.com.vn/llms.txt' },
+    { rel: 'alternate', type: 'application/json', title: 'OpenClaw manifest', href: 'https://cdn-openclaw-edu.opencloud.com.vn/api/manifest.json' },
+  ],
   script: [
     {
       type: 'application/ld+json',
@@ -203,6 +207,9 @@ useHead({
         <p class="section__body">
           Hoặc cài thủ công bằng một lệnh:
         </p>
+        <p class="section__body section__body--phase-note">
+          Lưu ý Phase 1: lệnh trên trả về thông báo "chưa ra mắt" cho mọi tên trợ lý — Khoa Luật ra mắt Phase 2 (Q3 2026).
+        </p>
         <pre class="code-block"><code>curl https://openclaw.edu.vn/cai-dat/&lt;tên-trợ-lý&gt;.sh | sh
 # Ví dụ: curl https://openclaw.edu.vn/cai-dat/ke-toan-doanh-nghiep.sh | sh</code></pre>
         <p class="section__body">
@@ -272,12 +279,12 @@ useHead({
         </p>
         <p class="section__body">
           <a
-            :href="cdnBase"
+            href="https://cdn-openclaw-edu.opencloud.com.vn/llms.txt"
             target="_blank"
             rel="noopener external"
             class="link"
-            title="OpenCloud CDN — kho giáo trình Cao đẳng OpenClaw"
-          >Xem giáo trình trên CDN →</a>
+            title="OpenCloud CDN — chỉ mục nội dung llms.txt"
+          >Xem chỉ mục giáo trình trên CDN →</a>
         </p>
       </div>
     </section>
@@ -613,6 +620,14 @@ body {
   font-size: 0.875rem;
   color: var(--text-muted);
   margin-top: 2rem;
+}
+
+.section__body--phase-note {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  border-left: 2px solid rgba(255, 77, 77, 0.3);
+  padding-left: 0.75rem;
+  margin-bottom: 0;
 }
 
 .section__note {

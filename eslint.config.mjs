@@ -32,6 +32,6 @@ export default withNuxt(
     },
   },
   {
-    ignores: ['node_modules', '.nuxt', '.output', '.agents', '.agent', '.claude', 'dist', 'build', 'docs', 'crawler'],
+    ignores: ['node_modules', '.nuxt', '.output', '.agents', '.agent', '.claude', 'dist', 'build', 'docs', 'crawler', '*.md'],
   },
 )

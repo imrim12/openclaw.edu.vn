@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{
+withDefaults(defineProps<{
   name: string
   slug: string
   status: string
@@ -7,7 +7,10 @@ defineProps<{
   progress: number
   teaser: string
   recruitHref: string
-}>()
+  ctaLabel?: string
+}>(), {
+  ctaLabel: 'Tuyển trợ lý này',
+})
 </script>
 
 <template>
@@ -43,7 +46,7 @@ defineProps<{
       :href="recruitHref"
       class="khoa-card__cta"
     >
-      Tuyển trợ lý này
+      {{ ctaLabel }}
     </a>
   </article>
 </template>

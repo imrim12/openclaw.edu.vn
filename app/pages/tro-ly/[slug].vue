@@ -48,6 +48,10 @@ useHead({ htmlAttrs: { lang: 'vi' } })
           <p class="section__body">
             Trợ lý này đang trong giai đoạn đào tạo và sẽ sẵn sàng vào {{ assistant.timeline }}. Bạn có thể xem danh sách đầy đủ tại trang Tuyển Dụng.
           </p>
+          <a
+            :href="`mailto:tin@openclaw.edu.vn?subject=Đăng%20ký%20nhận%20tin%20khi%20${encodeURIComponent(assistant.name)}%20ra%20mắt`"
+            class="cta-primary"
+          >Đăng ký nhận tin khi {{ assistant.name }} ra mắt →</a>
         </template>
         <template v-else>
           <h1 class="section__heading tro-ly-heading">
@@ -96,5 +100,28 @@ useHead({ htmlAttrs: { lang: 'vi' } })
 
 .tro-ly-back {
   margin-top: 2rem;
+}
+
+.cta-primary {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--coral-bright);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s;
+  min-height: 44px;
+  outline-offset: 2px;
+}
+
+.cta-primary:hover {
+  background: var(--coral-mid);
+}
+
+.cta-primary:focus-visible {
+  outline: 2px solid var(--coral-bright);
 }
 </style>
