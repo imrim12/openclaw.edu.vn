@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   name: string
+  slug: string
   status: string
   phase: string
   progress: number
@@ -10,7 +11,7 @@ defineProps<{
 </script>
 
 <template>
-  <article class="khoa-card">
+  <article :id="slug" class="khoa-card">
     <div class="khoa-card__header">
       <h3 class="khoa-card__name">
         {{ name }}

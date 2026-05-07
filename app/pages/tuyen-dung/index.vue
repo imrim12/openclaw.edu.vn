@@ -46,6 +46,7 @@ useSeoMeta({
   description: 'Danh sách Trợ lý AI chuyên ngành có thể tuyển cho doanh nghiệp Việt Nam — Luật, Kế toán, Quản trị Vận hành.',
   ogTitle: 'Tuyển Dụng Trợ lý — Cao đẳng OpenClaw',
   ogDescription: 'Danh sách Trợ lý AI chuyên ngành có thể tuyển cho doanh nghiệp Việt Nam — Luật, Kế toán, Quản trị Vận hành.',
+  ogImage: 'https://openclaw.edu.vn/og-home.png',
   ogUrl: 'https://openclaw.edu.vn/tuyen-dung',
   ogType: 'website',
   ogLocale: 'vi_VN',
@@ -92,6 +93,7 @@ useHead({
           <KhoaCard
             v-for="khoa in khoaList"
             :key="khoa.slug"
+            :slug="khoa.slug"
             :name="khoa.name"
             :status="khoa.status"
             :phase="khoa.phase"

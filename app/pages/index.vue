@@ -164,6 +164,7 @@ useHead({
           <KhoaCard
             v-for="khoa in khoaList"
             :key="khoa.slug"
+            :slug="khoa.slug"
             :name="khoa.name"
             :status="khoa.status"
             :phase="khoa.phase"
@@ -208,46 +209,40 @@ useHead({
         <div class="included-grid">
           <div class="included-item">
             <h3 class="included-item__title">
-              Giáo trình Khoa
+              Cơ chế đơn giản
             </h3>
             <p class="included-item__desc">
-              Toàn bộ môn học, quy trình hành nghề, boundary và test case của từng ngành — công khai, phiên bản hoá bằng git.
+              Không cần cấu hình kỹ thuật. Chỉ cần nhắn với OpenClaw — agent tự tải Trợ lý, cài skills và dữ liệu vào đúng thư mục.
             </p>
           </div>
           <div class="included-item">
             <h3 class="included-item__title">
-              Kho văn bản pháp luật
+              Kho kiến thức chuẩn
             </h3>
             <p class="included-item__desc">
-              Gần 500.000 văn bản quy phạm pháp luật Việt Nam đã chuẩn hoá Markdown, có đầy đủ metadata số hiệu, ngày ban hành, hiệu lực.
+              Gần 500.000 văn bản quy phạm pháp luật Việt Nam — chuẩn hoá Markdown, trích dẫn theo Thông tư / Luật / Nghị định gốc, cập nhật liên tục.
             </p>
           </div>
           <div class="included-item">
             <h3 class="included-item__title">
-              Chỉ mục cho agent
+              Bảo trì tích cực
             </h3>
             <p class="included-item__desc">
-              <a
-                :href="`${cdnBase}/llms.txt`"
+              Khi pháp luật thay đổi, kho kiến thức được cập nhật và Trợ lý được tái đào tạo — doanh nghiệp không cần theo dõi hay can thiệp.
+            </p>
+          </div>
+          <div class="included-item">
+            <h3 class="included-item__title">
+              Hạ tầng vẫn chắc
+            </h3>
+            <p class="included-item__desc">
+              Toàn bộ giáo trình và văn bản nguồn phân phối qua <a
+                :href="cdnBase"
                 target="_blank"
                 rel="noopener external"
                 class="link"
-                title="OpenCloud CDN — chỉ mục nội dung Cao đẳng OpenClaw"
-              >llms.txt</a> và <a
-                :href="`${cdnBase}/api/manifest.json`"
-                target="_blank"
-                rel="noopener external"
-                class="link"
-                title="OpenCloud CDN — manifest JSON của Cao đẳng OpenClaw"
-              >manifest.json</a> cập nhật theo mỗi lần deploy — agent runtime tự đồng bộ corpus mà không cần tải lại thủ công.
-            </p>
-          </div>
-          <div class="included-item">
-            <h3 class="included-item__title">
-              Văn bằng tra cứu công khai
-            </h3>
-            <p class="included-item__desc">
-              Mỗi Trợ lý tốt nghiệp có mã định danh duy nhất, tra cứu được tại cổng xác thực văn bằng của Trường.
+                title="OpenCloud CDN — hạ tầng lưu trữ Cao đẳng OpenClaw"
+              >cdn-openclaw-edu.opencloud.com.vn</a> — công khai, phiên bản hoá bằng git, không có điểm nghẽn đơn lẻ.
             </p>
           </div>
         </div>
@@ -255,19 +250,10 @@ useHead({
     </section>
 
     <!-- ============================================================
-         VĂN BẰNG
+         DISCLAIMER
     ============================================================ -->
-    <section id="van-bang" class="section section--surface">
+    <section class="section section--surface">
       <div class="container container--narrow">
-        <h2 class="section__heading">
-          Văn bằng đã cấp
-        </h2>
-        <p class="section__body">
-          Khoá đầu tiên ra mắt Phase 2. Sau khi Trợ lý đầu tiên hoàn thành chương trình đào tạo và được Hội đồng học thuật cấp bằng, danh sách văn bằng sẽ được công bố tại đây với mã định danh có thể tra cứu công khai.
-        </p>
-        <p class="section__body">
-          Mọi Trợ lý tốt nghiệp đều được cấp văn bằng có mã định danh dạng <code class="code-inline">7380107.2026.xxxxxx</code>. Người dùng và đối tác có thể tra cứu xác thực văn bằng tại <code class="code-inline">openclaw.edu.vn/tra-cuu-van-bang/</code>.
-        </p>
         <p class="section__body section__body--disclaimer">
           Nội dung do Trợ lý cung cấp có giá trị tham khảo và soạn thảo nháp. Trợ lý không thay thế người hành nghề có chứng chỉ. Hồ sơ pháp lý và kế toán phải được người có thẩm quyền — luật sư có thẻ, kế toán trưởng có chứng chỉ hành nghề, đại lý thuế được uỷ quyền — rà soát và ký xác nhận trước khi sử dụng.
         </p>
@@ -307,7 +293,7 @@ useHead({
             <ul class="footer__list">
               <li><a href="/tuyen-dung" class="footer__link">Tuyển dụng Trợ lý</a></li>
               <li><a href="#tro-ly" class="footer__link">Các Khoa đào tạo</a></li>
-              <li><a href="#van-bang" class="footer__link">Tra cứu văn bằng</a></li>
+              <li><span class="footer__link footer__link--plain">Tra cứu văn bằng (Phase 2)</span></li>
               <li>
                 <a
                   :href="`${cdnBase}/van-ban-goc/`"
