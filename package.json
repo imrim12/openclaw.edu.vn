@@ -44,6 +44,7 @@
     "@nuxt/scripts": "catalog:",
     "@nuxt/test-utils": "catalog:",
     "@playwright/test": "catalog:",
+    "@types/node": "catalog:",
     "@vitest/coverage-v8": "catalog:",
     "@vue/test-utils": "catalog:",
     "@vueuse/nuxt": "catalog:",

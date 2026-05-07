@@ -6,6 +6,7 @@
 .cache
 .docker
 dist
+build
 
 # Node dependencies
 node_modules
@@ -37,6 +38,7 @@ test-results/
 # Claude Code agent-team runtime state (regenerated per session)
 .claude/teams/
 .claude/tasks/
+.claude/workspace/
 
 # Claude Code per-developer settings (the project default lives in .claude/settings.json)
 .claude/settings.local.json
@@ -47,3 +49,11 @@ ux/
 screenshots/
 
 .vercel
+
+# Crawler runtime data and secrets
+crawler/data/
+crawler/proxies.json
+
+# Wrangler local state (never commit credentials)
+.wrangler/
+wrangler.toml

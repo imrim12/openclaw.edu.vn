@@ -31,6 +31,10 @@ export default defineNuxtConfig({
     preset: 'cloudflare-pages',
   },
 
+  routeRules: {
+    '/': { prerender: true },
+  },
+
   eslint: {
     config: {
       standalone: false,
@@ -38,9 +42,16 @@ export default defineNuxtConfig({
     },
   },
 
+  fonts: {
+    families: [
+      { name: 'Clash Display', provider: 'fontshare', weights: [700] },
+      { name: 'Satoshi', provider: 'fontshare', weights: [400, 500, 700] },
+    ],
+  },
+
   llms: {
     domain: 'https://openclaw.edu.vn',
-    title: 'openclaw.edu.vn',
-    description: 'Static markdown site for openclaw.edu.vn.',
+    title: 'Cao đẳng OpenClaw',
+    description: 'Trường nghề đào tạo Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam. Giáo trình công khai, bằng cấp xác thực, hành nghề có giới hạn.',
   },
 })
