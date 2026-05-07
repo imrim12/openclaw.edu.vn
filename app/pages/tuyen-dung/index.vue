@@ -19,7 +19,7 @@ const khoaList = [
     status: 'Đang chuẩn bị · ra mắt Phase 2 · Q3 2026',
     progress: 35,
     teaser: 'Hỗ trợ soạn thảo và rà soát hợp đồng dịch vụ, hợp đồng lao động, hợp đồng nguyên tắc giữa các pháp nhân Việt Nam theo Bộ luật Dân sự 2015 và Luật Thương mại 2005. Trợ lý biết từ chối các nội dung ngoài thẩm quyền và đề xuất Khoa phù hợp.',
-    recruitHref: '/tuyen-dung#luat',
+    recruitHref: '/tro-ly/luat-thuong-mai',
   },
   {
     name: 'Khoa Tài chính - Kế toán',
@@ -28,7 +28,7 @@ const khoaList = [
     status: 'Đang chuẩn bị · ra mắt Phase 3+',
     progress: 10,
     teaser: 'Hỗ trợ kê khai thuế giá trị gia tăng (GTGT), soạn tờ khai hằng tháng, trích dẫn Thông tư 40/2021/TT-BTC và các Thông tư hiện hành. Phù hợp cho chủ doanh nghiệp và kế toán dịch vụ cần tăng năng suất xử lý hồ sơ thuế định kỳ.',
-    recruitHref: '/tuyen-dung#tai-chinh-ke-toan',
+    recruitHref: '/tro-ly/ke-toan-doanh-nghiep',
   },
   {
     name: 'Khoa Quản trị Vận hành',
@@ -37,7 +37,7 @@ const khoaList = [
     status: 'Đang chuẩn bị · ra mắt Phase 3+',
     progress: 5,
     teaser: 'Hỗ trợ xử lý hồ sơ đấu thầu, soạn thảo quy trình nội bộ, quản lý hợp đồng vận hành và thủ tục hành chính doanh nghiệp. Được thiết kế cho doanh nghiệp 30–200 nhân sự cần chuẩn hoá quy trình vận hành.',
-    recruitHref: '/tuyen-dung#quan-tri-van-hanh',
+    recruitHref: '/tro-ly/quan-tri-van-hanh',
   },
 ] satisfies KhoaEntry[]
 
@@ -50,6 +50,10 @@ useSeoMeta({
   ogUrl: 'https://openclaw.edu.vn/tuyen-dung',
   ogType: 'website',
   ogLocale: 'vi_VN',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Tuyển Dụng Trợ lý — Cao đẳng OpenClaw',
+  twitterDescription: 'Danh sách Trợ lý AI chuyên ngành có thể tuyển cho doanh nghiệp Việt Nam — Luật, Kế toán, Quản trị Vận hành.',
+  twitterImage: 'https://openclaw.edu.vn/og-home.png',
 })
 
 useHead({
@@ -103,7 +107,7 @@ useHead({
           />
         </div>
         <p class="section__note">
-          Chưa có Trợ lý nào đang hoạt động ở Phase 1. Tất cả đang trong giai đoạn đào tạo và chuẩn bị giáo trình.
+          Hiện tại chưa có Trợ lý nào đang hoạt động — tất cả đang trong giai đoạn đào tạo và chuẩn bị giáo trình.
         </p>
       </div>
     </section>

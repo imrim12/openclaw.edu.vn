@@ -23,7 +23,7 @@ const khoaList = [
     status: 'Đang chuẩn bị · ra mắt Phase 2 · Q3 2026',
     progress: 35,
     teaser: 'Hỗ trợ soạn thảo và rà soát hợp đồng dịch vụ, hợp đồng lao động, hợp đồng nguyên tắc giữa các pháp nhân Việt Nam theo Bộ luật Dân sự 2015 và Luật Thương mại 2005. Trợ lý biết từ chối các nội dung ngoài thẩm quyền và đề xuất Khoa phù hợp.',
-    recruitHref: '/tuyen-dung#luat',
+    recruitHref: '/tro-ly/luat-thuong-mai',
   },
   {
     name: 'Khoa Tài chính - Kế toán',
@@ -32,7 +32,7 @@ const khoaList = [
     status: 'Đang chuẩn bị · ra mắt Phase 3+',
     progress: 10,
     teaser: 'Hỗ trợ kê khai thuế giá trị gia tăng (GTGT), soạn tờ khai hằng tháng, trích dẫn Thông tư 40/2021/TT-BTC và các Thông tư hiện hành. Phù hợp cho chủ doanh nghiệp và kế toán dịch vụ cần tăng năng suất xử lý hồ sơ thuế định kỳ.',
-    recruitHref: '/tuyen-dung#tai-chinh-ke-toan',
+    recruitHref: '/tro-ly/ke-toan-doanh-nghiep',
   },
   {
     name: 'Khoa Quản trị Vận hành',
@@ -41,7 +41,7 @@ const khoaList = [
     status: 'Đang chuẩn bị · ra mắt Phase 3+',
     progress: 5,
     teaser: 'Hỗ trợ xử lý hồ sơ đấu thầu, soạn thảo quy trình nội bộ, quản lý hợp đồng vận hành và thủ tục hành chính doanh nghiệp. Được thiết kế cho doanh nghiệp 30–200 nhân sự cần chuẩn hoá quy trình vận hành.',
-    recruitHref: '/tuyen-dung#quan-tri-van-hanh',
+    recruitHref: '/tro-ly/quan-tri-van-hanh',
   },
 ] satisfies KhoaEntry[]
 
@@ -56,6 +56,10 @@ useSeoMeta({
   ogUrl: 'https://openclaw.edu.vn',
   ogType: 'website',
   ogLocale: 'vi_VN',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Cao đẳng OpenClaw — Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam',
+  twitterDescription: 'Cao đẳng OpenClaw cung cấp Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam — đào tạo bài bản theo từng lĩnh vực Luật, Kế toán và Quản trị Vận hành.',
+  twitterImage: 'https://openclaw.edu.vn/og-home.png',
 })
 
 useHead({
@@ -68,7 +72,7 @@ useHead({
         '@type': 'EducationalOrganization',
         'name': 'Cao đẳng OpenClaw',
         'url': 'https://openclaw.edu.vn',
-        'description': 'Cao đẳng OpenClaw là tập hợp Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam — Luật, Kế toán, Quản trị Vận hành.',
+        'description': 'Cao đẳng OpenClaw đào tạo và cung cấp Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam trong các lĩnh vực Luật, Kế toán và Quản trị Vận hành.',
         'foundingDate': '2026',
         'address': {
           '@type': 'PostalAddress',
@@ -108,6 +112,15 @@ useHead({
             </Transition>
           </span>."
         </p>
+        <p class="hero__no-runtime">
+          Chưa có OpenClaw?
+          <a
+            href="https://openclaw.ai"
+            target="_blank"
+            rel="noopener external"
+            class="hero__cta-link"
+          >Tải OpenClaw tại openclaw.ai →</a>
+        </p>
       </div>
     </section>
 
@@ -120,7 +133,7 @@ useHead({
           Cơ chế hoạt động
         </h2>
         <p class="section__body">
-          Cao đẳng OpenClaw là nơi tập hợp các Trợ lý AI chuyên ngành, được đào tạo và chuẩn bị sẵn cho từng nghiệp vụ phổ biến tại doanh nghiệp Việt Nam.
+          Cao đẳng OpenClaw cung cấp bộ Trợ lý AI chuyên ngành, được đào tạo và chuẩn bị sẵn cho các nghiệp vụ phổ biến tại doanh nghiệp Việt Nam.
         </p>
         <ol class="co-che-steps">
           <li class="co-che-steps__item">
@@ -130,14 +143,14 @@ useHead({
             Trang <code class="code-inline">/tuyen-dung</code> là danh sách các Trợ lý có thể tuyển.
           </li>
           <li class="co-che-steps__item">
-            Các Trợ lý được chuẩn bị bài bản — kho kiến thức khổng lồ, chính thống, được trích dẫn theo Thông tư / Luật / Nghị định gốc.
+            Các Trợ lý được đào tạo bài bản — kho kiến thức rộng, chính thống, có trích dẫn theo Thông tư, Luật và Nghị định gốc.
           </li>
           <li class="co-che-steps__item">
-            OpenClaw tự tải và cài đặt Trợ lý, bộ kỹ năng, và dữ liệu cần thiết vào thư mục <code class="code-inline">OPENCLAW_ROOT/agents/&lt;tên-trợ-lý&gt;/</code>.
+            OpenClaw tự tải và cài đặt Trợ lý, bộ kỹ năng và dữ liệu cần thiết vào thư mục <code class="code-inline">OPENCLAW_ROOT/agents/&lt;tên-trợ-lý&gt;/</code>.
           </li>
         </ol>
         <p class="section__body section__body--trust">
-          Mọi Trợ lý đều có kho văn bản pháp luật nguồn chuẩn hoá thành Markdown, công khai hoàn toàn, và phân phối tại tên miền
+          Toàn bộ kho văn bản pháp luật nguồn — đã chuẩn hoá thành Markdown — được công bố công khai và phân phối qua tên miền
           <a
             :href="cdnBase"
             target="_blank"
@@ -174,7 +187,7 @@ useHead({
           />
         </div>
         <p class="section__note">
-          Khoá đầu tiên ra mắt Phase 2. Chưa có Trợ lý nào đang hoạt động ở Phase 1 — tất cả đang trong giai đoạn đào tạo và chuẩn bị giáo trình.
+          Khoá đầu tiên sẽ ra mắt tại Phase 2. Hiện tại chưa có Trợ lý nào đang hoạt động — tất cả đang trong giai đoạn đào tạo và chuẩn bị giáo trình.
         </p>
       </div>
     </section>
@@ -193,7 +206,7 @@ useHead({
         <pre class="code-block"><code>curl https://openclaw.edu.vn/cai-dat/&lt;tên-trợ-lý&gt;.sh | sh
 # Ví dụ: curl https://openclaw.edu.vn/cai-dat/ke-toan-doanh-nghiep.sh | sh</code></pre>
         <p class="section__body">
-          Script sẽ tải file Trợ lý vào <code class="code-inline">OPENCLAW_ROOT/agents/&lt;tên-trợ-lý&gt;/</code> cùng bộ skills và dữ liệu cần thiết.
+          Script sẽ tải Trợ lý vào <code class="code-inline">OPENCLAW_ROOT/agents/&lt;tên-trợ-lý&gt;/</code> cùng bộ kỹ năng và dữ liệu cần thiết.
         </p>
       </div>
     </section>
@@ -475,6 +488,12 @@ body {
 .hero__cta-link:focus-visible {
   outline: 2px solid var(--cyan-bright);
   border-radius: 2px;
+}
+
+.hero__no-runtime {
+  margin-top: 1.5rem;
+  font-size: 0.9375rem;
+  color: var(--text-muted);
 }
 
 .hero__profession-wrap {

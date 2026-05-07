@@ -44,8 +44,17 @@ export default defineNuxtConfig({
       prerender: true,
       headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' },
     },
-    '/tro-ly/**': {
-      redirect: { to: '/tuyen-dung', statusCode: 302 },
+    '/tro-ly/luat-thuong-mai': {
+      prerender: true,
+      headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' },
+    },
+    '/tro-ly/ke-toan-doanh-nghiep': {
+      prerender: true,
+      headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' },
+    },
+    '/tro-ly/quan-tri-van-hanh': {
+      prerender: true,
+      headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' },
     },
     '/robots.txt': { prerender: false },
   },
