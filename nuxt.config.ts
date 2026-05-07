@@ -36,6 +36,10 @@ export default defineNuxtConfig({
       prerender: true,
       headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' },
     },
+    '/tuyen-dung': {
+      prerender: true,
+      headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' },
+    },
     '/robots.txt': { prerender: false },
   },
 
