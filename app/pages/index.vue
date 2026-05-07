@@ -49,9 +49,9 @@ const { currentProfession, currentIndex } = useProfessionRotator()
 
 useSeoMeta({
   title: 'Cao đẳng OpenClaw — Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam',
-  description: 'Cao đẳng OpenClaw là tập hợp Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam — Luật, Kế toán, Quản trị Vận hành. Chỉ cần nhắn với OpenClaw để tuyển và cài đặt ngay.',
+  description: 'Cao đẳng OpenClaw cung cấp Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam — đào tạo bài bản theo từng lĩnh vực Luật, Kế toán và Quản trị Vận hành.',
   ogTitle: 'Cao đẳng OpenClaw — Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam',
-  ogDescription: 'Cao đẳng OpenClaw là tập hợp Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam — Luật, Kế toán, Quản trị Vận hành. Chỉ cần nhắn với OpenClaw để tuyển và cài đặt ngay.',
+  ogDescription: 'Cao đẳng OpenClaw cung cấp Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam — đào tạo bài bản theo từng lĩnh vực Luật, Kế toán và Quản trị Vận hành.',
   ogImage: 'https://openclaw.edu.vn/og-home.png',
   ogUrl: 'https://openclaw.edu.vn',
   ogType: 'website',
@@ -120,7 +120,7 @@ useHead({
           Cơ chế hoạt động
         </h2>
         <p class="section__body">
-          Cao đẳng OpenClaw là tập hợp sẵn các Agent đã được cài đặt và huấn luyện theo các ngành nghề đáp ứng nhu cầu doanh nghiệp thông thường tại Việt Nam.
+          Cao đẳng OpenClaw là nơi tập hợp các Trợ lý AI chuyên ngành, được đào tạo và chuẩn bị sẵn cho từng nghiệp vụ phổ biến tại doanh nghiệp Việt Nam.
         </p>
         <ol class="co-che-steps">
           <li class="co-che-steps__item">
@@ -133,7 +133,7 @@ useHead({
             Các Trợ lý được chuẩn bị bài bản — kho kiến thức khổng lồ, chính thống, được trích dẫn theo Thông tư / Luật / Nghị định gốc.
           </li>
           <li class="co-che-steps__item">
-            OpenClaw tự cài đặt Trợ lý + skills + dữ liệu cần thiết tại <code class="code-inline">OPENCLAW_ROOT/agents/&lt;tên trợ lý&gt;</code>.
+            OpenClaw tự tải và cài đặt Trợ lý, bộ kỹ năng, và dữ liệu cần thiết vào thư mục <code class="code-inline">OPENCLAW_ROOT/agents/&lt;tên-trợ-lý&gt;/</code>.
           </li>
         </ol>
         <p class="section__body section__body--trust">
@@ -204,7 +204,7 @@ useHead({
     <section id="noi-dung" class="section">
       <div class="container">
         <h2 class="section__heading">
-          Nội dung công khai
+          Tại sao chọn OpenClaw
         </h2>
         <div class="included-grid">
           <div class="included-item">
@@ -212,7 +212,7 @@ useHead({
               Cơ chế đơn giản
             </h3>
             <p class="included-item__desc">
-              Không cần cấu hình kỹ thuật. Chỉ cần nhắn với OpenClaw — agent tự tải Trợ lý, cài skills và dữ liệu vào đúng thư mục.
+              Đôi khi context engineering sẽ cho bạn bất ngờ với khả năng của chúng
             </p>
           </div>
           <div class="included-item">
@@ -220,7 +220,7 @@ useHead({
               Kho kiến thức chuẩn
             </h3>
             <p class="included-item__desc">
-              Gần 500.000 văn bản quy phạm pháp luật Việt Nam — chuẩn hoá Markdown, trích dẫn theo Thông tư / Luật / Nghị định gốc, cập nhật liên tục.
+              Kho kiến thức trực tiếp từ vbpl.vn và các nguồn uy tín khác
             </p>
           </div>
           <div class="included-item">
@@ -228,7 +228,7 @@ useHead({
               Bảo trì tích cực
             </h3>
             <p class="included-item__desc">
-              Khi pháp luật thay đổi, kho kiến thức được cập nhật và Trợ lý được tái đào tạo — doanh nghiệp không cần theo dõi hay can thiệp.
+              Chúng tôi lắng nghe và liên tục cải thiện giáo trình cho trợ lý
             </p>
           </div>
           <div class="included-item">
@@ -236,16 +236,36 @@ useHead({
               Hạ tầng vẫn chắc
             </h3>
             <p class="included-item__desc">
-              Toàn bộ giáo trình và văn bản nguồn phân phối qua <a
-                :href="cdnBase"
-                target="_blank"
-                rel="noopener external"
-                class="link"
-                title="OpenCloud CDN — hạ tầng lưu trữ Cao đẳng OpenClaw"
-              >cdn-openclaw-edu.opencloud.com.vn</a> — công khai, phiên bản hoá bằng git, không có điểm nghẽn đơn lẻ.
+              Dự án chạy 100% trên hạ tầng của Cloudflare, đảm bảo tốc độ truy cập 24/7
             </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GIÁO TRÌNH CÔNG KHAI
+    ============================================================ -->
+    <section id="giao-trinh" class="section">
+      <div class="container container--narrow">
+        <h2 class="section__heading">
+          Giáo trình công khai
+        </h2>
+        <p class="section__body">
+          Toàn bộ giáo trình đào tạo Trợ lý — bao gồm môn học, quy trình hành nghề, phạm vi thẩm quyền, và tình huống kiểm thử — được công bố công khai dưới dạng Markdown và quản lý phiên bản bằng git. Bất kỳ ai cũng có thể đọc, đối chiếu, và đánh giá chất lượng đào tạo mà không cần đăng nhập hay xin phép.
+        </p>
+        <p class="section__body">
+          Đây là cơ chế kiểm định chất lượng thực chất nhất mà Trường có thể cung cấp ở giai đoạn hiện tại: giáo trình mở, không che giấu phương pháp, không tự chứng nhận.
+        </p>
+        <p class="section__body">
+          <a
+            :href="cdnBase"
+            target="_blank"
+            rel="noopener external"
+            class="link"
+            title="OpenCloud CDN — kho giáo trình Cao đẳng OpenClaw"
+          >Xem giáo trình trên CDN →</a>
+        </p>
       </div>
     </section>
 
@@ -283,7 +303,7 @@ useHead({
               <li><a href="#co-che" class="footer__link">Giới thiệu</a></li>
               <li><span class="footer__link footer__link--plain">Hội đồng học thuật</span></li>
               <li><span class="footer__link footer__link--plain">Quy chế</span></li>
-              <li><a href="mailto:nguyenhuunguyeny.ny@gmail.com?subject=%C4%90%C4%83ng%20k%C3%BD%20%C4%91%C3%B3ng%20g%C3%B3p%20gi%C3%A1o%20tr%C3%ACnh" class="footer__link">Đóng góp giáo trình</a></li>
+              <li><a href="mailto:hoi-dong@openclaw.edu.vn?subject=%C4%90%C3%B3ng%20g%C3%B3p%20gi%C3%A1o%20tr%C3%ACnh" class="footer__link">Đóng góp giáo trình</a></li>
             </ul>
           </div>
           <div class="footer__links">
@@ -293,7 +313,7 @@ useHead({
             <ul class="footer__list">
               <li><a href="/tuyen-dung" class="footer__link">Tuyển dụng Trợ lý</a></li>
               <li><a href="#tro-ly" class="footer__link">Các Khoa đào tạo</a></li>
-              <li><span class="footer__link footer__link--plain">Tra cứu văn bằng (Phase 2)</span></li>
+              <li><a href="/tra-cuu-van-bang" class="footer__link">Tra cứu văn bằng (Phase 2)</a></li>
               <li>
                 <a
                   :href="`${cdnBase}/van-ban-goc/`"

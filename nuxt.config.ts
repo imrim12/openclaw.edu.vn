@@ -40,6 +40,10 @@ export default defineNuxtConfig({
       prerender: true,
       headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' },
     },
+    '/tra-cuu-van-bang': {
+      prerender: true,
+      headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' },
+    },
     '/tro-ly/**': {
       redirect: { to: '/tuyen-dung', statusCode: 302 },
     },
@@ -63,6 +67,6 @@ export default defineNuxtConfig({
   llms: {
     domain: 'https://openclaw.edu.vn',
     title: 'Cao đẳng OpenClaw',
-    description: 'Trường nghề đào tạo Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam. Giáo trình công khai, bằng cấp xác thực, hành nghề có giới hạn.',
+    description: 'Trường nghề đào tạo Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam. Giáo trình công khai, quản lý phiên bản bằng git.',
   },
 })
