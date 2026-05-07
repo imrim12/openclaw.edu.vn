@@ -28,7 +28,7 @@ import TheSeal from '~/components/TheSeal.vue'
           <h4>Hạ tầng</h4>
           <ul>
             <li><a href="https://opencloud.com.vn" target="_blank" rel="noopener">OpenCloud CDN</a></li>
-            <li><a href="/llms.txt">llms.txt</a></li>
+            <li><a href="https://cdn-openclaw-edu.opencloud.com.vn/llms.txt" target="_blank" rel="noopener">llms.txt</a></li>
           </ul>
         </div>
         <div class="footer-col footer-brand">

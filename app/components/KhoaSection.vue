@@ -1,41 +1,6 @@
 <script setup lang="ts">
 import KhoaCard from '~/components/KhoaCard.vue'
-
-interface KhoaData {
-  name: string
-  phaseBadge: string
-  status: string
-  progressPct: number
-  teaser: string
-  ctaHref: string
-}
-
-const khoaList = [
-  {
-    name: 'Khoa Luật',
-    phaseBadge: 'Phase 2 · Q3 2026',
-    status: 'Đang chuẩn bị · ra mắt Phase 2 · Q3 2026',
-    progressPct: 32,
-    teaser: 'Soạn thảo và rà soát hợp đồng dân sự — thương mại, lao động, sở hữu trí tuệ. Tra cứu văn bản pháp luật, đối chiếu hiệu lực, dẫn chiếu Thông tư - Luật - Nghị định.',
-    ctaHref: '/tuyen-dung#khoa-luat',
-  },
-  {
-    name: 'Khoa Tài chính - Kế toán',
-    phaseBadge: 'Phase 4 · Q1 2027',
-    status: 'Đang chuẩn bị · ra mắt Phase 4 · Q1 2027',
-    progressPct: 14,
-    teaser: 'Kê khai và quyết toán thuế GTGT - TNCN - TNDN. Hạch toán nghiệp vụ kế toán doanh nghiệp. Kiểm toán nội bộ và đối chiếu chuẩn mực kế toán Việt Nam.',
-    ctaHref: '/tuyen-dung#khoa-tai-chinh-ke-toan',
-  },
-  {
-    name: 'Khoa Quản trị Vận hành',
-    phaseBadge: 'Phase 5 · 2027',
-    status: 'Đang chuẩn bị · ra mắt Phase 5 · 2027',
-    progressPct: 6,
-    teaser: 'Kinh doanh quốc tế và thủ tục xuất nhập khẩu. Quản trị đấu thầu. Kinh tế xây dựng. Quản trị hành chính doanh nghiệp.',
-    ctaHref: '/tuyen-dung#khoa-quan-tri-van-hanh',
-  },
-] satisfies KhoaData[]
+import { khoaList } from '~/data/khoa'
 </script>
 
 <template>
@@ -54,13 +19,13 @@ const khoaList = [
       <div class="faculty-grid">
         <KhoaCard
           v-for="khoa in khoaList"
-          :key="khoa.name"
+          :key="khoa.slug"
           :name="khoa.name"
           :phase-badge="khoa.phaseBadge"
           :status="khoa.status"
           :progress-pct="khoa.progressPct"
           :teaser="khoa.teaser"
-          :cta-href="khoa.ctaHref"
+          :cta-href="khoa.recruitHref"
         />
       </div>
 
