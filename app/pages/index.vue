@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import KhoaCard from '~/components/KhoaCard.vue'
 import TheSeal from '~/components/TheSeal.vue'
+import { useProfessionRotator } from '~/composables/useProfessionRotator'
 
 const cdnBase = 'https://cdn-openclaw-edu.opencloud.com.vn'
 
@@ -11,7 +12,7 @@ interface KhoaEntry {
   phase: string
   progress: number
   teaser: string
-  cta: string
+  recruitHref: string
 }
 
 const khoaList = [
@@ -22,7 +23,7 @@ const khoaList = [
     status: 'Đang chuẩn bị · ra mắt Phase 2 · Q3 2026',
     progress: 35,
     teaser: 'Hỗ trợ soạn thảo và rà soát hợp đồng dịch vụ, hợp đồng lao động, hợp đồng nguyên tắc giữa các pháp nhân Việt Nam theo Bộ luật Dân sự 2015 và Luật Thương mại 2005. Trợ lý biết từ chối các nội dung ngoài thẩm quyền và đề xuất Khoa phù hợp.',
-    cta: 'Đăng ký nhận tin',
+    recruitHref: '/tuyen-dung#luat',
   },
   {
     name: 'Khoa Tài chính - Kế toán',
@@ -31,7 +32,7 @@ const khoaList = [
     status: 'Đang chuẩn bị · ra mắt Phase 3+',
     progress: 10,
     teaser: 'Hỗ trợ kê khai thuế giá trị gia tăng (GTGT), soạn tờ khai hằng tháng, trích dẫn Thông tư 40/2021/TT-BTC và các Thông tư hiện hành. Phù hợp cho chủ doanh nghiệp và kế toán dịch vụ cần tăng năng suất xử lý hồ sơ thuế định kỳ.',
-    cta: 'Đăng ký nhận tin',
+    recruitHref: '/tuyen-dung#tai-chinh-ke-toan',
   },
   {
     name: 'Khoa Quản trị Vận hành',
@@ -40,15 +41,17 @@ const khoaList = [
     status: 'Đang chuẩn bị · ra mắt Phase 3+',
     progress: 5,
     teaser: 'Hỗ trợ xử lý hồ sơ đấu thầu, soạn thảo quy trình nội bộ, quản lý hợp đồng vận hành và thủ tục hành chính doanh nghiệp. Được thiết kế cho doanh nghiệp 30–200 nhân sự cần chuẩn hoá quy trình vận hành.',
-    cta: 'Đăng ký nhận tin',
+    recruitHref: '/tuyen-dung#quan-tri-van-hanh',
   },
 ] satisfies KhoaEntry[]
 
+const { currentProfession, currentIndex } = useProfessionRotator()
+
 useSeoMeta({
-  title: 'Cao đẳng OpenClaw — Trường nghề đào tạo Trợ lý chuyên ngành cho doanh nghiệp Việt Nam',
-  description: 'Cao đẳng OpenClaw đào tạo và cấp văn bằng cho Trợ lý chuyên ngành — Luật, Tài chính-Kế toán, Quản trị Vận hành. Giáo trình công khai, bằng cấp xác thực, hành nghề có giới hạn. Phục vụ doanh nghiệp Việt Nam.',
-  ogTitle: 'Cao đẳng OpenClaw — Trường nghề đào tạo Trợ lý chuyên ngành',
-  ogDescription: 'Đào tạo Trợ lý chuyên ngành cho doanh nghiệp Việt Nam. Giáo trình công khai, văn bằng xác thực, phạm vi hành nghề rõ ràng.',
+  title: 'Cao đẳng OpenClaw — Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam',
+  description: 'Cao đẳng OpenClaw là tập hợp Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam — Luật, Kế toán, Quản trị Vận hành. Chỉ cần nhắn với OpenClaw để tuyển và cài đặt ngay.',
+  ogTitle: 'Cao đẳng OpenClaw — Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam',
+  ogDescription: 'Cao đẳng OpenClaw là tập hợp Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam — Luật, Kế toán, Quản trị Vận hành. Chỉ cần nhắn với OpenClaw để tuyển và cài đặt ngay.',
   ogImage: 'https://openclaw.edu.vn/og-home.png',
   ogUrl: 'https://openclaw.edu.vn',
   ogType: 'website',
@@ -65,7 +68,7 @@ useHead({
         '@type': 'EducationalOrganization',
         'name': 'Cao đẳng OpenClaw',
         'url': 'https://openclaw.edu.vn',
-        'description': 'Trường nghề đào tạo và cấp văn bằng cho Trợ lý chuyên ngành tại Việt Nam. Giáo trình công khai, bằng cấp xác thực, hành nghề có giới hạn.',
+        'description': 'Cao đẳng OpenClaw là tập hợp Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam — Luật, Kế toán, Quản trị Vận hành.',
         'foundingDate': '2026',
         'address': {
           '@type': 'PostalAddress',
@@ -84,58 +87,57 @@ useHead({
          HERO
     ============================================================ -->
     <section class="hero">
-      <div class="container">
-        <div class="hero__identity">
-          <TheSeal :size="96" />
-          <div class="hero__wordmark">
-            <span class="hero__school-name">Cao đẳng OpenClaw</span>
-            <span class="hero__est">EST. 2026</span>
-          </div>
-        </div>
-
-        <h1 class="hero__tagline">
-          Trường nghề đào tạo Trợ lý chuyên ngành<br class="hero__br">
-          cho doanh nghiệp Việt Nam
+      <div class="container hero__container">
+        <h1 class="hero__title">
+          Cao đẳng OpenClaw
         </h1>
 
-        <p class="hero__sub">
-          Giáo trình công khai. Bằng cấp xác thực. Hành nghề có giới hạn.
+        <p class="hero__cta-quote">
+          <em>Nhắn với OpenClaw của bạn:</em>
         </p>
-
-        <div class="hero__ctas">
-          <a href="#tro-ly" class="btn btn--primary">
-            Khám phá Trợ lý
-          </a>
-          <a href="#noi-dung" class="btn btn--secondary">
-            Khám phá giáo trình
-          </a>
-        </div>
+        <p class="hero__cta-quote hero__cta-quote--main">
+          "Hãy vào
+          <a
+            href="https://openclaw.edu.vn/tuyen-dung"
+            class="hero__cta-link"
+          >openclaw.edu.vn/tuyen-dung</a>
+          và tuyển cho tôi một
+          <span class="hero__profession-wrap">
+            <Transition name="profession" mode="out-in">
+              <span :key="currentIndex" class="hero__profession">{{ currentProfession }}</span>
+            </Transition>
+          </span>."
+        </p>
       </div>
     </section>
 
     <!-- ============================================================
-         WHAT IT IS — §3 Tuyên ngôn
+         CƠ CHẾ HOẠT ĐỘNG
     ============================================================ -->
-    <section id="tuyen-ngon" class="section section--surface">
+    <section id="co-che" class="section section--surface">
       <div class="container container--narrow">
         <h2 class="section__heading">
-          Trường là gì
+          Cơ chế hoạt động
         </h2>
         <p class="section__body">
-          Cao đẳng OpenClaw đào tạo và cấp văn bằng cho các Trợ lý trí tuệ nhân tạo (AI) theo từng ngành nghề cụ thể, với giáo trình công khai, quy trình minh bạch, và phạm vi hành nghề rõ ràng. Mỗi Trợ lý tốt nghiệp đều có thể được doanh nghiệp tuyển dụng và giao việc với mức độ tin cậy tương đương một nhân viên cấp cử nhân thực hành đã được đào tạo bài bản — soạn thảo hợp đồng, kê khai thuế, xử lý hồ sơ hành chính — mà không cần người dùng hiểu về kỹ thuật hay lắp ghép công cụ.
+          Cao đẳng OpenClaw là tập hợp sẵn các Agent đã được cài đặt và huấn luyện theo các ngành nghề đáp ứng nhu cầu doanh nghiệp thông thường tại Việt Nam.
         </p>
-        <p class="section__body">
-          Khác với ChatGPT hay các công cụ AI tổng quát, Trợ lý của Trường được đào tạo chuyên biệt cho nghiệp vụ pháp luật và kế toán Việt Nam, có trích dẫn văn bản pháp luật cụ thể theo từng điều khoản, và được thiết kế để từ chối các việc ngoài thẩm quyền chuyên môn. Thay vì tự làm hoặc thuê thêm nhân sự, doanh nghiệp tuyển một Trợ lý đã tốt nghiệp và giao việc bằng ngôn ngữ tự nhiên.
-        </p>
-        <div class="tuyen-ngon">
-          <span>Giáo trình công khai</span>
-          <span class="tuyen-ngon__sep" aria-hidden="true">·</span>
-          <span>Bằng cấp xác thực</span>
-          <span class="tuyen-ngon__sep" aria-hidden="true">·</span>
-          <span>Hành nghề có giới hạn</span>
-        </div>
+        <ol class="co-che-steps">
+          <li class="co-che-steps__item">
+            Nhắn với OpenClaw: <em>"Hãy vào <a href="https://openclaw.edu.vn/tuyen-dung" class="link">https://openclaw.edu.vn/tuyen-dung</a> và tuyển cho tôi một Trợ lý chuyên ngành Kế toán Doanh nghiệp."</em>
+          </li>
+          <li class="co-che-steps__item">
+            Trang <code class="code-inline">/tuyen-dung</code> là danh sách các Trợ lý có thể tuyển.
+          </li>
+          <li class="co-che-steps__item">
+            Các Trợ lý được chuẩn bị bài bản — kho kiến thức khổng lồ, chính thống, được trích dẫn theo Thông tư / Luật / Nghị định gốc.
+          </li>
+          <li class="co-che-steps__item">
+            OpenClaw tự cài đặt Trợ lý + skills + dữ liệu cần thiết tại <code class="code-inline">OPENCLAW_ROOT/agents/&lt;tên trợ lý&gt;</code>.
+          </li>
+        </ol>
         <p class="section__body section__body--trust">
-          Mọi Trợ lý tốt nghiệp đều có văn bằng có mã định danh duy nhất, có thể tra cứu công khai. Giáo trình từng Khoa do Trưởng khoa là chuyên gia có chứng chỉ hành nghề thật duyệt và chịu trách nhiệm. Kho văn bản pháp luật nguồn — mục tiêu gần 500.000 văn bản — được chuẩn hoá thành Markdown, công khai hoàn toàn, và phân phối tại tên miền
+          Mọi Trợ lý đều có kho văn bản pháp luật nguồn chuẩn hoá thành Markdown, công khai hoàn toàn, và phân phối tại tên miền
           <a
             :href="cdnBase"
             target="_blank"
@@ -156,7 +158,7 @@ useHead({
           Khám phá Trợ lý theo Khoa
         </h2>
         <p class="section__intro">
-          Trường đang chuẩn bị ba Khoa đào tạo đầu tiên. Khoa Luật ra mắt Phase 2 — Q3 2026. Đăng ký nhận tin để được thông báo khi Trợ lý đầu tiên ra mắt.
+          Cao đẳng OpenClaw đang chuẩn bị ba Khoa đào tạo đầu tiên. Chọn một Khoa để xem danh sách Trợ lý có thể tuyển.
         </p>
         <div class="khoa-grid">
           <KhoaCard
@@ -167,7 +169,7 @@ useHead({
             :phase="khoa.phase"
             :progress="khoa.progress"
             :teaser="khoa.teaser"
-            :cta="khoa.cta"
+            :recruit-href="khoa.recruitHref"
           />
         </div>
         <p class="section__note">
@@ -177,25 +179,20 @@ useHead({
     </section>
 
     <!-- ============================================================
-         QUICK START FOR AGENTS
+         CÀI NHANH TRỢ LÝ
     ============================================================ -->
     <section class="section section--surface">
       <div class="container container--narrow">
         <h2 class="section__heading">
-          Tích hợp vào agent runtime
+          Cài nhanh Trợ lý
         </h2>
         <p class="section__body">
-          Toàn bộ giáo trình, định nghĩa Trợ lý và văn bản pháp luật nguồn được phân phối dưới dạng Markdown thuần qua hạ tầng CDN của OpenCloud tại tên miền <code class="code-inline">cdn-openclaw-edu.opencloud.com.vn</code>. OpenCloud là nhà cung cấp hạ tầng lưu trữ cho Cao đẳng OpenClaw — toàn bộ nội dung học thuật của Trường được lưu trữ và phân phối qua dịch vụ này.
+          Hoặc cài thủ công bằng một lệnh:
         </p>
-        <pre class="code-block"><code><!-- fetch a Trợ lý definition — example for Phase 2 -->
-fetch('https://cdn-openclaw-edu.opencloud.com.vn/tro-ly/luat-kinh-te/ho-so.md')
-  .then(r => r.text())
-  .then(md => /* load into your agent context */)
-
-<!-- enumerate all available paths -->
-fetch('https://cdn-openclaw-edu.opencloud.com.vn/llms.txt')</code></pre>
+        <pre class="code-block"><code>curl https://openclaw.edu.vn/cai-dat/&lt;tên-trợ-lý&gt;.sh | sh
+# Ví dụ: curl https://openclaw.edu.vn/cai-dat/ke-toan-doanh-nghiep.sh | sh</code></pre>
         <p class="section__body">
-          Mỗi file trả về <code class="code-inline">Content-Type: text/markdown; charset=utf-8</code>. Agent runtime chỉ cần đọc file và nạp vào context — không cần API key, không cần SDK.
+          Script sẽ tải file Trợ lý vào <code class="code-inline">OPENCLAW_ROOT/agents/&lt;tên-trợ-lý&gt;/</code> cùng bộ skills và dữ liệu cần thiết.
         </p>
       </div>
     </section>
@@ -297,7 +294,7 @@ fetch('https://cdn-openclaw-edu.opencloud.com.vn/llms.txt')</code></pre>
               Trường
             </h4>
             <ul class="footer__list">
-              <li><a href="#tuyen-ngon" class="footer__link">Giới thiệu</a></li>
+              <li><a href="#co-che" class="footer__link">Giới thiệu</a></li>
               <li><span class="footer__link footer__link--plain">Hội đồng học thuật</span></li>
               <li><span class="footer__link footer__link--plain">Quy chế</span></li>
               <li><a href="mailto:nguyenhuunguyeny.ny@gmail.com?subject=%C4%90%C4%83ng%20k%C3%BD%20%C4%91%C3%B3ng%20g%C3%B3p%20gi%C3%A1o%20tr%C3%ACnh" class="footer__link">Đóng góp giáo trình</a></li>
@@ -308,8 +305,8 @@ fetch('https://cdn-openclaw-edu.opencloud.com.vn/llms.txt')</code></pre>
               Nội dung
             </h4>
             <ul class="footer__list">
+              <li><a href="/tuyen-dung" class="footer__link">Tuyển dụng Trợ lý</a></li>
               <li><a href="#tro-ly" class="footer__link">Các Khoa đào tạo</a></li>
-              <li><a href="#tro-ly" class="footer__link">Danh sách Trợ lý</a></li>
               <li><a href="#van-bang" class="footer__link">Tra cứu văn bằng</a></li>
               <li>
                 <a
@@ -363,7 +360,7 @@ fetch('https://cdn-openclaw-edu.opencloud.com.vn/llms.txt')</code></pre>
 
 <style>
 /* ============================================================
-   CSS custom properties — impl-plan §3.1
+   CSS custom properties
 ============================================================ */
 :root {
   --bg-deep: #050810;
@@ -432,62 +429,75 @@ body {
     var(--bg-deep);
 }
 
-.hero__identity {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
+.hero__container {
+  max-width: 680px;
+  text-align: center;
 }
 
-.hero__wordmark {
-  display: flex;
-  flex-direction: column;
-}
-
-.hero__school-name {
+.hero__title {
   font-family: 'Clash Display', sans-serif;
   font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--text-primary);
-  line-height: 1.2;
-}
-
-.hero__est {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--coral-bright);
-  margin-top: 0.125rem;
-}
-
-.hero__tagline {
-  font-family: 'Clash Display', sans-serif;
-  font-weight: 700;
-  font-size: clamp(2rem, 5vw, 4rem);
-  line-height: 1.15;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
   background: linear-gradient(135deg, var(--text-primary) 40%, var(--cyan-bright) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 1.25rem;
-}
-
-.hero__br {
-  display: block;
-}
-
-.hero__sub {
-  font-size: 1.125rem;
-  color: var(--text-secondary);
   margin-bottom: 2rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
 }
 
-.hero__ctas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+.hero__cta-quote {
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+.hero__cta-quote--main {
+  margin-bottom: 0;
+}
+
+.hero__cta-link {
+  color: var(--cyan-bright);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  outline-offset: 2px;
+  font-style: normal;
+}
+
+.hero__cta-link:focus-visible {
+  outline: 2px solid var(--cyan-bright);
+  border-radius: 2px;
+}
+
+.hero__profession-wrap {
+  display: inline-block;
+  min-width: 16rem;
+  position: relative;
+}
+
+.hero__profession {
+  display: inline-block;
+  color: var(--coral-bright);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* profession transition */
+.profession-enter-active,
+.profession-leave-active {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.profession-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.profession-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
 }
 
 /* ============================================================
@@ -591,23 +601,43 @@ body {
 }
 
 /* ============================================================
-   Tuyên ngôn
+   Cơ chế hoạt động steps
 ============================================================ */
-.tuyen-ngon {
+.co-che-steps {
+  list-style: none;
+  counter-reset: step-counter;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  margin-block: 1.5rem;
-  font-family: 'Clash Display', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--coral-bright);
-  letter-spacing: 0.02em;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-.tuyen-ngon__sep {
-  color: var(--text-muted);
+.co-che-steps__item {
+  counter-increment: step-counter;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.co-che-steps__item::before {
+  content: counter(step-counter);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: rgba(255, 77, 77, 0.12);
+  border: 1px solid rgba(255, 77, 77, 0.3);
+  color: var(--coral-bright);
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
 }
 
 /* ============================================================
@@ -802,10 +832,6 @@ body {
     padding-block: 3rem 2.5rem;
   }
 
-  .hero__br {
-    display: none;
-  }
-
   .footer__grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -816,9 +842,8 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .hero__identity {
-    flex-direction: column;
-    align-items: flex-start;
+  .hero__profession-wrap {
+    min-width: 12rem;
   }
 }
 </style>
