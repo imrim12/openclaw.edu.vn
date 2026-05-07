@@ -56,7 +56,13 @@ export default defineNuxtConfig({
       prerender: true,
       headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' },
     },
+    '/gioi-thieu': { prerender: true, headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' } },
+    '/hoi-dong-hoc-thuat': { prerender: true, headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' } },
+    '/quy-che': { prerender: true, headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' } },
+    '/dong-gop': { prerender: true, headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' } },
+    '/khoa': { prerender: true, headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' } },
     '/robots.txt': { prerender: false },
+    '/llms.txt': { prerender: false },
   },
 
   eslint: {
@@ -66,10 +72,13 @@ export default defineNuxtConfig({
     },
   },
 
+  css: ['~/assets/css/tokens.css'],
+
   fonts: {
     families: [
-      { name: 'Clash Display', provider: 'fontshare', weights: [700] },
-      { name: 'Satoshi', provider: 'fontshare', weights: [400, 500, 700] },
+      { name: 'Clash Display', provider: 'fontshare', weights: [400, 500, 600, 700] },
+      { name: 'Satoshi', provider: 'fontshare', weights: [300, 400, 500, 700] },
+      { name: 'JetBrains Mono', provider: 'google', weights: [400, 500, 600] },
     ],
   },
 
