@@ -40,6 +40,9 @@ export default defineNuxtConfig({
       prerender: true,
       headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' },
     },
+    '/tro-ly/**': {
+      redirect: { to: '/tuyen-dung', statusCode: 302 },
+    },
     '/robots.txt': { prerender: false },
   },
 

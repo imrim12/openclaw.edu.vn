@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { resolveComponent } from 'vue'
-
 defineProps<{
   name: string
   status: string
@@ -9,8 +7,6 @@ defineProps<{
   teaser: string
   recruitHref: string
 }>()
-
-const NuxtLink = resolveComponent('NuxtLink')
 </script>
 
 <template>
@@ -42,13 +38,12 @@ const NuxtLink = resolveComponent('NuxtLink')
     <p class="khoa-card__teaser">
       {{ teaser }}
     </p>
-    <component
-      :is="NuxtLink"
-      :to="recruitHref"
+    <a
+      :href="recruitHref"
       class="khoa-card__cta"
     >
       Tuyển trợ lý này
-    </component>
+    </a>
   </article>
 </template>
 
