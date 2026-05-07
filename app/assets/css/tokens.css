@@ -1,0 +1,61 @@
+:root {
+  --bg: #050810;
+  --bg-deep: #03050a;
+  --surface: #0a0f1a;
+  --surface-2: #111726;
+  --border: #1a2235;
+  --border-strong: #2a3450;
+  --text: #f0f1f5;
+  --text-dim: #9aa3b8;
+  --text-faint: #5d6685;
+  --coral: #ff4d4d;
+  --coral-soft: rgba(255, 77, 77, 0.12);
+  --cyan: #00e5cc;
+  --cyan-soft: rgba(0, 229, 204, 0.1);
+  --font-display: 'Clash Display', system-ui, sans-serif;
+  --font-body: 'Satoshi', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 16px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 70% 40% at 50% -10%, rgba(0, 229, 204, 0.06), transparent 60%),
+    radial-gradient(ellipse 50% 30% at 50% 0%, rgba(255, 77, 77, 0.05), transparent 70%);
+}
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+a:hover {
+  color: var(--text);
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 28px;
+}

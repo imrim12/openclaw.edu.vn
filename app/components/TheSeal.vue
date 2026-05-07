@@ -1,106 +1,24 @@
 <script setup lang="ts">
-defineProps<{ size?: number }>()
+const props = withDefaults(defineProps<{ size?: number }>(), { size: 32 })
+
+const uid = `seal-${Math.random().toString(36).slice(2, 7)}`
 </script>
 
 <template>
   <svg
-    :width="size ?? 120"
-    :height="size ?? 120"
-    viewBox="0 0 120 120"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    role="img"
-    aria-label="Cao đẳng OpenClaw"
+    :width="props.size"
+    :height="props.size"
+    viewBox="0 0 100 100"
+    aria-hidden="true"
   >
     <defs>
-      <linearGradient
-        id="claw-grad"
-        x1="0%"
-        y1="0%"
-        x2="100%"
-        y2="100%"
-      >
-        <stop
-          offset="0%"
-          stop-color="#ff4d4d"
-        />
-        <stop
-          offset="100%"
-          stop-color="#991b1b"
-        />
-      </linearGradient>
+      <path :id="uid" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
     </defs>
-    <circle
-      cx="60"
-      cy="60"
-      r="57"
-      stroke="#ff4d4d"
-      stroke-width="1.5"
-      fill="none"
-      opacity="0.6"
-    />
-    <circle
-      cx="60"
-      cy="60"
-      r="53"
-      stroke="#ff4d4d"
-      stroke-width="0.5"
-      fill="none"
-      opacity="0.3"
-    />
-    <path
-      id="arc-top"
-      d="M 10,60 A 50,50 0 0,1 110,60"
-      fill="none"
-    />
-    <path
-      id="arc-bottom"
-      d="M 18,72 A 48,48 0 0,0 102,72"
-      fill="none"
-    />
-    <text
-      font-family="'Clash Display', sans-serif"
-      font-size="8"
-      fill="#ff4d4d"
-      letter-spacing="2"
-      font-weight="700"
-    >
-      <textPath
-        href="#arc-top"
-        startOffset="8%"
-      >
-        CAO ĐẲNG OPENCLAW
-      </textPath>
+    <circle cx="50" cy="50" r="46" fill="none" stroke="#2a3450" stroke-width="1" />
+    <circle cx="50" cy="50" r="42" fill="none" stroke="#2a3450" stroke-width="0.5" />
+    <text font-family="JetBrains Mono, monospace" font-size="8.5" letter-spacing="2" fill="#9aa3b8">
+      <textPath :href="`#${uid}`" start-offset="0">CAO ĐẲNG OPENCLAW · MMXXVI · </textPath>
     </text>
-    <text
-      font-family="'Clash Display', sans-serif"
-      font-size="7"
-      fill="#ff4d4d"
-      letter-spacing="1.5"
-      font-weight="600"
-    >
-      <textPath
-        href="#arc-bottom"
-        startOffset="22%"
-      >
-        EST. 2026
-      </textPath>
-    </text>
-    <g transform="translate(60,56) scale(0.38)">
-      <path
-        d="M0,-44 C-6,-30 -18,-10 -22,10 C-24,22 -18,32 -8,36 C-2,38 4,36 8,30 L14,44 C6,52 -4,56 -14,54 C-30,50 -40,36 -38,18 C-36,-6 -20,-32 -10,-50 Z"
-        fill="url(#claw-grad)"
-      />
-      <path
-        d="M0,-44 C6,-30 18,-10 22,10 C24,22 18,32 8,36 C2,38 -4,36 -8,30 L-14,44 C-6,52 4,56 14,54 C30,50 40,36 38,18 C36,-6 20,-32 10,-50 Z"
-        fill="url(#claw-grad)"
-        opacity="0.85"
-      />
-      <path
-        d="M0,-50 C0,-34 0,-10 0,8 C0,20 4,30 0,40 C-4,30 0,20 0,8 C0,-10 0,-34 0,-50 Z"
-        fill="url(#claw-grad)"
-        opacity="0.7"
-      />
-    </g>
+    <text x="50" y="55" text-anchor="middle" font-family="Clash Display, sans-serif" font-size="22" font-weight="600" fill="#ff4d4d">OC</text>
   </svg>
 </template>

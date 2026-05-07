@@ -1,152 +1,157 @@
 <script setup lang="ts">
-withDefaults(defineProps<{
+import { useProgressFill } from '~/composables/useProgressFill'
+
+const props = defineProps<{
   name: string
-  slug: string
+  phaseBadge: string
   status: string
-  phase: string
-  progress: number
+  progressPct: number
   teaser: string
-  recruitHref: string
-  ctaLabel?: string
-}>(), {
-  ctaLabel: 'Tuyển trợ lý này',
-})
+  ctaHref: string
+}>()
+
+const { fillEl, width } = useProgressFill(props.progressPct)
 </script>
 
 <template>
-  <article :id="slug" class="khoa-card">
-    <div class="khoa-card__header">
-      <h3 class="khoa-card__name">
+  <article class="faculty-card">
+    <div class="faculty-header">
+      <h3 class="faculty-name">
         {{ name }}
       </h3>
-      <span class="khoa-card__phase">
-        {{ phase }}
-      </span>
+      <span class="phase-badge">{{ phaseBadge }}</span>
     </div>
-    <p class="khoa-card__status">
+    <p class="faculty-status">
       {{ status }}
     </p>
-    <div
-      class="khoa-card__progress-bar"
-      role="progressbar"
-      :aria-valuenow="progress"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      :aria-label="`Tiến độ chuẩn bị: ${progress}%`"
-    >
-      <div
-        class="khoa-card__progress-fill"
-        :style="{ width: `${progress}%` }"
-      />
+    <div>
+      <div class="progress">
+        <div
+          ref="fillEl"
+          class="progress-fill"
+          :style="{ width }"
+        />
+      </div>
+      <p class="progress-label">
+        Chuẩn bị giáo trình · {{ progressPct }}%
+      </p>
     </div>
-    <p class="khoa-card__teaser">
+    <p class="faculty-teaser">
       {{ teaser }}
     </p>
-    <a
-      :href="recruitHref"
-      class="khoa-card__cta"
-    >
-      {{ ctaLabel }}
+    <a :href="ctaHref" class="faculty-cta">
+      Tuyển trợ lý này <span class="arrow">→</span>
     </a>
   </article>
 </template>
 
 <style scoped>
-.khoa-card {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-subtle);
+.faculty-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 28px 28px 24px;
+  transition: border-color 0.2s, transform 0.2s;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  transition: border-color 0.2s;
+  gap: 16px;
 }
 
-.khoa-card:hover,
-.khoa-card:focus-within {
-  border-color: var(--border-accent);
+.faculty-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
 }
 
-.khoa-card__header {
+.faculty-header {
   display: flex;
-  align-items: flex-start;
   justify-content: space-between;
-  gap: 0.5rem;
+  align-items: flex-start;
+  gap: 12px;
 }
 
-.khoa-card__name {
-  font-family: 'Clash Display', sans-serif;
-  font-weight: 700;
-  font-size: 1.125rem;
-  color: var(--text-primary);
-  margin: 0;
+.faculty-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
 }
 
-.khoa-card__phase {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  color: var(--coral-bright);
-  background: rgba(255, 77, 77, 0.1);
-  border: 1px solid rgba(255, 77, 77, 0.25);
-  border-radius: 4px;
-  padding: 0.125rem 0.5rem;
+.phase-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  background: var(--coral-soft);
+  color: var(--coral);
+  border-radius: 999px;
   white-space: nowrap;
-  flex-shrink: 0;
+  font-weight: 500;
 }
 
-.khoa-card__status {
-  font-size: 0.8125rem;
-  color: var(--text-secondary);
-  margin: 0;
+.faculty-status {
+  font-size: 13px;
+  color: var(--text-faint);
+  font-weight: 400;
 }
 
-.khoa-card__progress-bar {
+.progress {
   height: 4px;
-  background: rgba(136, 146, 176, 0.15);
+  background: var(--bg-deep);
   border-radius: 2px;
   overflow: hidden;
+  position: relative;
 }
 
-.khoa-card__progress-fill {
+.progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--coral-bright), var(--cyan-bright));
+  background: linear-gradient(90deg, var(--cyan), var(--coral));
   border-radius: 2px;
-  transition: width 0.4s ease;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.khoa-card__teaser {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
+.progress-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  margin-top: 6px;
+}
+
+.faculty-teaser {
+  font-size: 14px;
+  color: var(--text-dim);
   line-height: 1.6;
-  margin: 0;
   flex: 1;
 }
 
-.khoa-card__cta {
-  margin-top: 0.25rem;
-  padding: 0.5rem 1rem;
-  font-family: inherit;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--coral-bright);
-  background: transparent;
-  border: 1px solid var(--border-accent);
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+.faculty-cta {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--cyan);
   align-self: flex-start;
-  outline-offset: 2px;
-  text-decoration: none;
-  display: inline-block;
+  padding: 9px 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  transition: all 0.2s;
 }
 
-.khoa-card__cta:hover {
-  background: rgba(255, 77, 77, 0.1);
-  border-color: var(--coral-bright);
+.faculty-cta:hover {
+  border-color: var(--cyan);
+  background: var(--cyan-soft);
+  color: var(--cyan);
 }
 
-.khoa-card__cta:focus-visible {
-  outline: 2px solid var(--coral-bright);
+.faculty-cta .arrow {
+  transition: transform 0.2s;
+}
+
+.faculty-cta:hover .arrow {
+  transform: translateX(3px);
 }
 </style>
