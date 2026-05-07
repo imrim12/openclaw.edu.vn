@@ -9,7 +9,6 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     '@vueuse/nuxt',
     'magic-regexp',
-    'nuxt-llms',
   ],
 
   $development: {
@@ -62,7 +61,6 @@ export default defineNuxtConfig({
     '/dong-gop': { prerender: true, headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' } },
     '/khoa': { prerender: true, headers: { 'cache-control': 'public, max-age=3600, s-maxage=86400' } },
     '/robots.txt': { prerender: false },
-    '/llms.txt': { redirect: { to: 'https://cdn-openclaw-edu.opencloud.com.vn/llms.txt', statusCode: 302 } },
   },
 
   eslint: {
@@ -82,9 +80,4 @@ export default defineNuxtConfig({
     ],
   },
 
-  llms: {
-    domain: 'https://openclaw.edu.vn',
-    title: 'Cao đẳng OpenClaw',
-    description: 'Trường nghề đào tạo Trợ lý AI chuyên ngành cho doanh nghiệp Việt Nam. Giáo trình công khai, quản lý phiên bản bằng git.',
-  },
 })
